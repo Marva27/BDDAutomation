@@ -62,13 +62,6 @@
 			<version>2.20.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.github.qsy7.java.modules.browser.modules/ashot -->
-		<dependency>
-			<groupId>io.github.qsy7.java.modules.browser.modules</groupId>
-			<artifactId>ashot</artifactId>
-			<version>0.1.2</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
