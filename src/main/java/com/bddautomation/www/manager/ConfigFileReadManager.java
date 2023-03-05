@@ -1,34 +1,36 @@
-package com.bddautomation.www.util;
+package com.bddautomation.www.manager;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Properties;
 
-public class ConfigFile {
+public class ConfigFileReadManager {
 
-	private Properties properties;
+	private Properties properties = null;
 	private final String configFilePath = "configs//Configuration.properties";
-	
-	public ConfigFile() {
+
+	public ConfigFileReadManager() {
 		BufferedReader bufferedReader;
 		try {
-			bufferedReader = new BufferedReader(new FileReader(configFilePath));
-			properties = new Properties();
-			try {
-				properties.load(bufferedReader);
-				bufferedReader.close();
-			}catch(Exception e) {
-				throw new RuntimeException(e.getMessage());
+			if (properties == null) {
+				bufferedReader = new BufferedReader(new FileReader(configFilePath));
+				properties = new Properties();
+				try {
+					properties.load(bufferedReader);
+					bufferedReader.close();
+				} catch (Exception e) {
+					throw new RuntimeException(e.getMessage());
+				}
 			}
-		}catch(FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			throw new RuntimeException("Configuration.properties file NOT found in configs folder");
 		}
 	}
-	
+
 	public String getWayFairURL() {
 		String url = properties.getProperty("wayFairUrl");
-		if(url != null)
+		if (url != null)
 			return url;
 		else
 			throw new RuntimeException("wayFairUrl is not specified in Configuration.properties");
@@ -36,10 +38,10 @@ public class ConfigFile {
 
 	public String getGoogleURL() {
 		String url = properties.getProperty("googleUrl");
-		if(url != null)
+		if (url != null)
 			return url;
 		else
 			throw new RuntimeException("googleUrl is not specified in Configuration.properties");
 	}
-	
+
 }

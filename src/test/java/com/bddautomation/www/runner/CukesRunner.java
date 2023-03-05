@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = "src/test/resources/features", 
-		glue = "com.cucumberjunit.www.steps", 
-		dryRun = true,
-		tags = "@WayFairLogin",
+		glue = "com.bddautomation.www.steps", 
+		dryRun = false,
+		tags = "@Google and @HomePage",
 		plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
 				})
 public class CukesRunner {
