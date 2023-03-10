@@ -14,7 +14,7 @@ public class AppLogger {
 	public static synchronized void startTestCase(Scenario scenario) {
 		Collection<String> scenarioName = scenario.getSourceTagNames();
 		String fileName = scenarioName.toArray()[0].toString() + "_" + scenarioName.toArray()[1].toString() + "_" + scenario.getLine();
-		fileName = fileName.replaceAll("[a-zA-Z0-9]", "_").replaceAll("_+","_").replaceAll("@", "");
+		fileName = fileName.replaceAll("_+","_").replaceAll("@", "");
 		startLog(System.getProperty("user.dir"), fileName);
 		info("\n\n******** Execution Started : " + fileName + "************\n");
 	}
@@ -22,7 +22,7 @@ public class AppLogger {
 	public static synchronized void endTestCase(Scenario scenario) {
 		Collection<String> scenarioName = scenario.getSourceTagNames();
 		String fileName = scenarioName.toArray()[0].toString() + "_" + scenarioName.toArray()[1].toString() + "_" + scenario.getLine();
-		fileName = fileName.replaceAll("[a-zA-Z0-9]", "_").replaceAll("_+","_").replaceAll("@", "");
+		fileName = fileName.replaceAll("_+","_").replaceAll("@", "");
 		info("\n\n******** Execution Ended : " + fileName + "************\n");
 	}
 

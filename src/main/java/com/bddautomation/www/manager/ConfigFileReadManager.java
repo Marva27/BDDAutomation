@@ -44,4 +44,12 @@ public class ConfigFileReadManager {
 			throw new RuntimeException("googleUrl is not specified in Configuration.properties");
 	}
 
+	public String getBingURL() {
+		String url = properties.getProperty("bingUrl");
+		if (url != null)
+			return url;
+		else
+			throw new RuntimeException("bingUrl is not specified in Configuration.properties");
+	}
+
 }

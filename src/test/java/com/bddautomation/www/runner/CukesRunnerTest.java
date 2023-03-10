@@ -12,12 +12,12 @@ import io.cucumber.junit.CucumberOptions;
 		features = "src/test/resources/features", 
 		glue = "com.bddautomation.www.steps", 
 		dryRun = false,
-		tags = "@Google and @HomePage",
+		tags = "@Google",
 		plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
 				})
-public class CukesRunner {
+public class CukesRunnerTest {
 	
-	public CukesRunner() {
+	public CukesRunnerTest() {
 		AppLogger.info("I was called!!");
 	}
 

@@ -22,7 +22,7 @@ public class GooglePage extends BasePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void isGooglePaeDisplayed(Scenario currentScenario) throws IOException {
+	public void isGooglePageDisplayed(Scenario currentScenario) throws IOException {
 		AppLogger.info("Entered isGooglePaeDisplayed");
 		currentScenario.attach(Files.readAllBytes(Utility.captureScreenshot(driver, false).toPath()), "image/png", "google_page");
 		Assert.assertTrue("Was Google Page displayed?", driver.getTitle().contains("Google"));
@@ -43,11 +43,9 @@ public class GooglePage extends BasePage {
 		AppLogger.info("Exited googleSearch");
 	}
 	
-	public boolean areGoogleSearchResultsDisplayed(String searchResults, Scenario currentScenario) {
+	public void areGoogleSearchResultsDisplayed(String searchResults, Scenario currentScenario) {
 		AppLogger.info("Entered areGoogleSearchResultsDisplayed");
-		if(driver.getTitle().contains(searchResults))
-			return true;
-		else
-			return false;
+		Assert.assertTrue("Were search results match contain " + searchResults + "?", driver.getTitle().contains(searchResults));
+		AppLogger.info("Exited areGoogleSearchResultsDisplayed");
 	}
 }

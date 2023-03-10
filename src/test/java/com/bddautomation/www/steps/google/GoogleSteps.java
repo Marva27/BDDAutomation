@@ -1,16 +1,13 @@
 package com.bddautomation.www.steps.google;
 
 import java.io.IOException;
-import java.nio.file.Files;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import com.bddautomation.www.core.TestContext;
 import com.bddautomation.www.logger.AppLogger;
 import com.bddautomation.www.pages.google.GooglePage;
 import com.bddautomation.www.steps.hooks.Hooks;
-import com.bddautomation.www.util.Utility;
 
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
@@ -44,16 +41,19 @@ public class GoogleSteps {
 
 	@Then("I should see Google Home page")
 	public void i_should_see_google_home_page() throws IOException {
-		googlePage.isGooglePaeDisplayed(currentScenario);
+		AppLogger.info("Calling isGooglePageDisplayed");
+		googlePage.isGooglePageDisplayed(currentScenario);
 	}
 
 	@When("I search for {string}")
 	public void i_search_for(String searchText) throws IOException {
-		
+		AppLogger.info("Calling googleSearch");
+		googlePage.googleSearch(searchText, currentScenario);
 	}
 
 	@Then("I should see the search results for {string}")
 	public void i_should_see_the_search_results_for(String searchResults) throws IOException {
-		
+		AppLogger.info("Calling ");
+		googlePage.areGoogleSearchResultsDisplayed(searchResults, currentScenario);
 	}
 }

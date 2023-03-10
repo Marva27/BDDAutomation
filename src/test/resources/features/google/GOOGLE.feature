@@ -1,4 +1,4 @@
-@Google
+@Google @All
 Feature: GOOGLE
   I want to test the Google Website
 
@@ -8,7 +8,7 @@ Feature: GOOGLE
     Then I should see Google Home page
 
   @Search
-  Scenario Outline: Google Search
+  Scenario Outline: GOOGLE_SEARCH
     Given I connect to https://www.google.com
     And I search for "<SEARCH>"
     Then I should see the search results for "<SEARCH>"
