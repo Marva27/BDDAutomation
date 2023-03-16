@@ -72,7 +72,9 @@ public class WebDriverManager {
 	private WebDriver createLocalDriver() {
 		AppLogger.info("Entered createLocalDriver");
 		try {
-			driver = new ChromeDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--remote-allow-origins=*");
+			driver = new ChromeDriver(chromeOptions);
 			return driver;
 		}catch(Exception e) {
 			AppLogger.error(e.getMessage());
